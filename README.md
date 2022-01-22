@@ -167,4 +167,6 @@ Where the first argument is the output of the cmass.c code. The second and third
 
 Attention: for the perpendicular coeffient calculation a linear region of the density profile must be chosen. 
 
+It is also important to make sure that the value for "slab" in the code is the same used in the gmx density. In other to best use the code, chose a tlim value to make sure the survival probility reaches zero. 
+
 </p>
