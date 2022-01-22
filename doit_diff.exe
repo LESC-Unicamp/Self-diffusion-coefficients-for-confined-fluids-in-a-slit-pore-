@@ -1,0 +1,28 @@
+#Local density 
+	#Step 0 : generate local density - important to change hmax and hmin in diff.c
+	#gmx density -f prod_out.trr -s prod_out.tpr -o density.xvg -sl 1000 -d z
+	 
+# Center of mass in bulk
+
+	# Step 1: Trajectory
+        gmx trjconv -f prod_out.trr -s prod_out.tpr -pbc nojump -o out.gro
+ 		 # Arguments: pbc-type of periodic boundary condition / nojump-follow molecules trajetories, essencial for transport properties / out.gro- output 
+
+	# Step 2: C language compiler for the 'cmass.c' code to file 'out'
+	gcc cmass.c -o out -lm
+
+	# Step 3: Executable file 'out /  
+	./out 1 out.gro cmass.dat 5000000 100
+		# Arguments: 1-number of atoms in the molecule of bulk / out.gro-input file / cmass.dat-output file / 5000000-nsteps / 100-nstxout
+
+# Self-difusion in confined fluids
+
+	# Step  4: C language compiler for the 'diff.c' code to file 'out2'
+	./out cmass.dat 2.50 3.50 2.50 3.50 density.xvg 10 50
+
+	# Step 5: executable file 'out2' 	
+	./out2
+
+	
+	
+
