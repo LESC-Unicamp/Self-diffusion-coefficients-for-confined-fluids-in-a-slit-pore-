@@ -147,7 +147,7 @@ An executable file with all the commands is also available: doit_diff.exe.
 
 ## Running the Code
 <p align="justify">
-As the code calculates the diffusion coefficient of molecules in confined fluids, the coefficients have a dependency of the position in z. Therefore, special care must be taken to chose the interval for calculation according to the density profile. 
+As the code calculates the diffusion coefficient of molecules in confined fluids, the coefficients have a dependency of the position in z. Therefore, special care must be taken to chose the interval for calculation according to the density profile.It is only possible to calculate the coefficent for small layers inside the pore.  
   
   <em><p align="center">
   <b>Figure 02</b>. Example of a density profile of a 5nm slit pore of calcite containing methane.
@@ -157,13 +157,14 @@ As the code calculates the diffusion coefficient of molecules in confined fluids
 ![SC](https://user-images.githubusercontent.com/98060271/150573653-6eead4ac-9bbb-40dd-a763-3719de5496c1.jpg)
 </p>
 
-To run the code, the command line used was:
-```console
-./out cmet1.dat 2.50 3.50 2.50 3.50 density.xvg 10 50
-```
-</p>
+In this code, two major regions are analysed. One in the center of the pore and the other one closer to the wall. 
 
-## Files and Folders
-<p align="justify">
-  Falar dos arquivos gerados
+To run the code for exemple for the center of the pore, the command line used was:
+```console
+./out cmass.dat 2.50 3.50 2.50 3.50 density.xvg 10 50
+```
+Where the first argument is the output of the cmass.c code. The second and third arguments refer to the minimum and maximum values considered for the parallel coeffients calculation while the forth and fifith refer to the perpendicular coeficient. The last ones are related to the interval chosen for the linear regression function.
+
+Attention: for the perpendicular coeffient calculation a linear region of the density profile must be chosen. 
+
 </p>
