@@ -59,7 +59,7 @@ This algorithm was originally designed to calculate the self-diffusion coefficie
 * <a href="#reporting-errors">4. Reporting Errors</a>
 * <a href="#input-files-preparation">5. Input files preparation</a>
 * <a href="#running-the-code">6. Running the Code</a>
-* <a href="#files-and-folders">7. Alternative code</a>
+* <a href="#files-and-folders">7. Alternative code - Tolerance time </a>
 
 
 ## Disclaimer
