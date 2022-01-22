@@ -59,12 +59,12 @@ This algorithm was originally designed to calculate the self-diffusion coefficie
 * <a href="#reporting-errors">4. Reporting Errors</a>
 * <a href="#input-files-preparation">5. Input files preparation</a>
 * <a href="#running-the-code">6. Running the Code</a>
-* <a href="#files-and-folders">7. Files and Folders</a>
+* <a href="#files-and-folders">7. Alternative code</a>
 
 
 ## Disclaimer
 <p align="justify">
-The authors make no warranties about the use of this software. The authors hold no liabilities for the use of this software. T The algorithm is made freely available to clarify any details discussed in the paper. All information contained herein regarding any specific methodology does not constitute or imply its endorsement or recommendation by the authors.
+The authors make no warranties about the use of this software. The authors hold no liabilities for the use of this software. The authors do not recommend the use of this software whatsoever.The algorithm is made freely available to clarify any details discussed in the paper. All information contained herein regarding any specific methodology does not constitute or imply its endorsement or recommendation by the authors.
 </p>
 
 ## Language
@@ -81,7 +81,7 @@ The main program, subroutines and functions contain some explanatory comments an
 </p>
 
 <p align="justify">
-We have built the code using the following command line:
+We have built the code for the calculation of the self-difusion coefficients using the following command line:
 </p>
 
 ```console
@@ -99,7 +99,7 @@ If you spot an error in the program files and all other documentation, please su
 
 ## Input files preparation
 <p align="justify">
-Before running the code, the user should first prepare the files obtained from Molecular Dynamics (MD) simulation. The program used for MD simulations was GROMACS (version 2018.03 tested). Multiple files are obtained as outputs in the simulation. Here, the files will be refered by "name.type".
+Before running the code to obtain the coefficients, the user should first prepare the files obtained from Molecular Dynamics (MD) simulation. The program used for MD simulations was GROMACS (version 2018.03 tested). Multiple files are obtained as outputs in the simulation. Here, the files will be refered by "name.type".
 </p>
 First, it is necessary to obtain the mean density of the molecules in function of the distance in z. This was done using GROMACS and the files .trr and .tpr, as shown by the following command line:
 </p>
@@ -170,3 +170,17 @@ Attention: for the perpendicular coefficient calculation a linear region of the 
 It is also important to make sure that the value for "slab" in the code is the same used in the gmx density. In other to best use the code, chose a tlim value to make sure the survival probability reaches zero. 
 
 </p>
+
+## Alternative code - Tolerance time
+<p align="justify">
+  An alternative code considers the addition of a tolerance time. The addition of a tolerance time is done by considering the possibility that the molecule return to the layer after a short period of time, implying that the displacement was reasonably small and is a modification in the methods previusly used (<a href="https://doi.org/10.1021/jp0375057">Liu et al., <b>J. Phys. Chem. B</b>, 108, 21, 6595–6602, 2004</a> and <a href="https://doi.org/10.1021/acs.jctc.6b00653">Franco et al., <b> J. Chem. Theory Comput.</b>, 12, 11, 5247–5255, 2016</a>). The periods of time of tolerance (dt) are a multiple of the time step of the simulation. This value is also an input of this code.
+  
+```console
+gcc diff_timetolerance.c -o out -lm
+```  
+ To run the code for example for the center of the pore and dt = 1, the command line used was:
+```console
+./out cmass.dat 2.50 3.50 2.50 3.50 density.xvg 10 50 1
+```
+ Where the first argument is the output of the cmass.c code. The second and third arguments refer to the minimum and maximum values considered for the parallel coefficients calculation while the forth and fifth refer to the perpendicular coefficient. The two next ones are related to the interval chosen for the linear regression function. The last one is the tolerance time added.
+  
