@@ -99,7 +99,7 @@ If you spot an error in the program files and all other documentation, please su
 
 ## Input files preparation
 <p align="justify">
-Before running the code to obtain the coefficients, the user should first prepare the files obtained from Molecular Dynamics (MD) simulation. The program used for MD simulations was GROMACS (version 2018.03 tested). Multiple files are obtained as outputs in the simulation. Here, the files will be refered by "name.type".
+Before running the code to obtain the coefficients, the user should first prepare the files obtained from Molecular Dynamics (MD) simulation. The program used for MD simulations was GROMACS (version 2018.03 tested). Multiple files are obtained as outputs in the simulation. Here, the files will be referred by "name.type".
 </p>
 First, it is necessary to obtain the mean density of the molecules in function of the distance in z. This was done using GROMACS and the files .trr and .tpr, as shown by the following command line:
 </p>
@@ -108,7 +108,7 @@ First, it is necessary to obtain the mean density of the molecules in function o
 gmx density -f prod_out.trr -s prod_out.tpr -o density.xvg -sl 1000 -d z
 
 ```
-For further details on how to use gmx density the user is refered to the GROMACS <a href="https://manual.gromacs.org/documentation/2018/onlinehelp/gmx-density.html">documentation</a> for the topic.
+For further details on how to use gmx density the user is referred to the GROMACS <a href="https://manual.gromacs.org/documentation/2018/onlinehelp/gmx-density.html">documentation</a> for the topic.
 </p>
 Next, the trajectory in function of the time step for each molecule must be obtained. Once again using GROMACS and files .trr and .tpr, as shown by the following command line:
 </p>
@@ -117,7 +117,7 @@ Next, the trajectory in function of the time step for each molecule must be obta
 gmx trjconv -f prod_out.trr -s prod_out.tpr -pbc nojump -o out.gro
 
 ```
-For further details on how to use gmx trjconv the user is refered to the GROMACS <a href="https://manual.gromacs.org/documentation/2018/onlinehelp/gmx-trjconv.html">documentation</a> for the topic.
+For further details on how to use gmx trjconv the user is referred to the GROMACS <a href="https://manual.gromacs.org/documentation/2018/onlinehelp/gmx-trjconv.html">documentation</a> for the topic.
 </p>
 In both cases, the molecule of interest to obtain the self-diffusion coefficient must be carefully specified. Only one type of molecule can be studied at a time. 
 </p>
