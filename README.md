@@ -169,9 +169,9 @@ Attention: for the perpendicular coefficient calculation a linear region of the 
 
 It is also important to make sure that the value for "slab" in the code is the same used in the gmx density.  Another important point is to make sure the same values for the simulations are used both for cmass.c and diff.c, refering to:  "totsteps" - number os steps of the simulation (nsteps in the .mdp file) and "interval" - interval between the recorded positions in the simulation (nstxout in the .mdp file).
 
+  <b>Parallel coefficients</b>
+  
 When running the code, the first step is read the cmass.dat file and create a matriz where each line is time step of the simulation and each colunm refers to one of the molecules position in that time. 
-
-  ## Parallel coefficients
 
 Next, the parallel self-coefficient calculation start, using the method developed by Liu and collaborators (<a href="https://doi.org/10.1021/jp0375057">Liu et al., <b>J. Phys. Chem. B</b>, 108, 21, 6595–6602, 2004</a>). The first step is to calculate the Mean Square Displacemet (MSD) of the system - Equation 14. In order to improve the statistics of the method, multiple time origins are used and then, the avarege of the results is obtained. 
 
@@ -181,11 +181,10 @@ Tagging the particles is also important to caluculate the survival probability P
 
 The parallel coefficients can then be obtained by a linear regression from a graphic of the MSD over the P(t) in function of time - Equation 16. Naturally, a linear region of the data must be chosen and the minimum e maximum values are inputs in the command line for running the code. 
 
-The files generated in the parallel calculation are: 
+The files generated in the parallel coefficients calculation are: 
   - msd.dat: data for the mean square displacement as a function of time ;
   - sprob_par.dat: data for the survival probability as a function of time;
   - msd_over_sprob.dat: data for the ratio of the MSD over the survival probability as a function of time; 
-
 
 </p>
 
