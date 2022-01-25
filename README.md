@@ -189,13 +189,13 @@ The files generated in the parallel coefficients calculation are:
 
 <b>Perpendicular coefficient</b>
 
-In order to obtain the diffusion perpendicular coefficient the method develop by Franco and collaborators (<a href="https://doi.org/10.1021/acs.jctc.6b00653">Franco et al., <b> J. Chem. Theory Comput.</b>, 12, 11, 5247–5255, 2016</a>) is used. The steps also start with the calculation of the MSD and the survival probability with multiple time origins. Next, there is the calculation of the residence time (tau), the integral of the survival probability, that is made by a trapezoidal numerical integration - Equation 40. Then, the natural logaritm of the density is obtained as a result of the development made considering a linear potential of mean force. A linear regression is made with the logaritm of the density and the position. After that, the constant alpha must be obtained - Equation 27. 
+In order to obtain the diffusion perpendicular coefficient the method develop by Franco and collaborators (<a href="https://doi.org/10.1021/acs.jctc.6b00653">Franco et al., <b> J. Chem. Theory Comput.</b>, 12, 11, 5247–5255, 2016</a>) is used. The steps also start with the calculation of the MSD and the survival probability with multiple time origins. Next, there is the calculation of the residence time (tau), the integral of the survival probability, that is made by a trapezoidal numerical integration <a href="https://doi.org/10.1021/acs.jctc.6b00653">- Equation 40</a>. Then, the natural logaritm of the density is obtained as a result of the development made considering a linear potential of mean force. A linear regression is made with the logaritm of the density and the position. After that, the constant alpha must be obtained <a href="https://doi.org/10.1021/acs.jctc.6b00653">- Equation 27</a>. 
 
-The perpendicular coefficient can then be obtained from the lenght of the layer (L), the residence time (tau) and alpha. The files generated are: 
+The perpendicular coefficient can then be obtained from the lenght of the layer (L), the residence time (tau) and alpha from <a href="https://doi.org/10.1021/acs.jctc.6b00653"> Equation 26</a> . The files generated are: 
   - sprob_perp.dat: data for the survival probability as a function of time;
   - lndensity.xvg: data for the natural logaritm of the density in function of position;
   - alpha.dat: value for constant alpha;
-  - diff_confined.dat: values for the self-diffusion coefficient in the order Dxx, Dyy and DZZ.
+  - diff_confined.dat: values for the self-diffusion coefficient in the order Dxx, Dyy and Dzz.
 </p>
 
 ## Alternative code - Tolerance time
