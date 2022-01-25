@@ -95,7 +95,7 @@ gcc diff.c -o out -lm
 
 ## Reporting Errors
 <p align="justify">
-If you spot an error in the program files and all other documentation, please submit an issue report using the <a href="https://github.com/Flavianbraga/Diffusion/issues">Issues</a> tab.
+If you spot an error in the program files and all other documentation, please submit an issue report using the <a href="https://github.com/LESC-Unicamp/Self-diffusion-coefficients-for-confined-fluids-in-a-slit-pore-/issues">Issues</a> tab.
 </p>
 
 ## Input files preparation
