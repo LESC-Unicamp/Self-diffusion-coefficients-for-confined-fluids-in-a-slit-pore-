@@ -173,21 +173,27 @@ It is also important to make sure that the value for "slab" in the code is the s
   
 When running the code, the first step is read the cmass.dat file and create a matriz where each line is time step of the simulation and each colunm refers to one of the molecules position in that time. 
 
-Next, the parallel self-coefficient calculation start, using the method developed by Liu and collaborators (<a href="https://doi.org/10.1021/jp0375057">Liu et al., <b>J. Phys. Chem. B</b>, 108, 21, 6595–6602, 2004</a>). The first step is to calculate the Mean Square Displacemet (MSD) of the system - Equation 14. In order to improve the statistics of the method, multiple time origins are used and then, the avarege of the results is obtained. 
+Next, the parallel self-coefficient calculation start, using the method developed by Liu and collaborators (<a href="https://doi.org/10.1021/jp0375057">Liu et al., <b>J. Phys. Chem. B</b>, 108, 21, 6595–6602, 2004</a>). The first step is to calculate the Mean Square Displacemet (MSD) of the system <a href="https://doi.org/10.1021/jp0375057">- Equation 14</a>. In order to improve the statistics of the method, multiple time origins are used and then, the avarege of the results is obtained. 
 
 The MSD for each time origin is obtained by tagging a particle for as long as it remains in the interval of positions definied in the command line to run the code. The displacement between two time steps are calculated and averaged for the amount of time under study. The variable "tlim" represents the amount of time steps that are analyzed for every loop of different time origin. In this scenario the time origins varies from 0 to steps-tlim. 
 
-Tagging the particles is also important to caluculate the survival probability P(t) - Equation 15. The survival probability refers to the ratio between the amount of molecules that are initally in a layer, and the ones ramainin after a period of time. Naturally the values starts at one and finishes at zero. In other to best use the code, analyse and chose a tlim value to make sure the survival probability reaches zero.
+Tagging the particles is also important to caluculate the survival probability P(t) <a href="https://doi.org/10.1021/jp0375057">- Equation 15</a>. The survival probability refers to the ratio between the amount of molecules that are initally in a layer, and the ones ramainin after a period of time. Naturally the values starts at one and finishes at zero. In other to best use the code, analyse and chose a tlim value to make sure the survival probability reaches zero.
 
-The parallel coefficients can then be obtained by a linear regression from a graphic of the MSD over the P(t) in function of time - Equation 16. Naturally, a linear region of the data must be chosen and the minimum e maximum values are inputs in the command line for running the code. 
+The parallel coefficients can then be obtained by a linear regression from a graphic of the MSD over the P(t) in function of time <a href="https://doi.org/10.1021/jp0375057">- Equation 16</a>. Naturally, a linear region of the data must be chosen and the minimum e maximum values are inputs in the command line for running the code. 
 
 The files generated in the parallel coefficients calculation are: 
   - msd.dat: data for the mean square displacement as a function of time ;
   - sprob_par.dat: data for the survival probability as a function of time;
   - msd_over_sprob.dat: data for the ratio of the MSD over the survival probability as a function of time; 
-
 </p>
 
+<b>Perpendicular coefficient</b>
+
+
+
+
+
+</p>
 ## Alternative code - Tolerance time
 <p align="justify">
   An alternative code considers the addition of a tolerance time. The addition of a tolerance time is done by considering the possibility that the molecule return to the layer after a short period of time, implying that the displacement was reasonably small and is a modification in the methods previusly used (<a href="https://doi.org/10.1021/jp0375057">Liu et al., <b>J. Phys. Chem. B</b>, 108, 21, 6595–6602, 2004</a> and <a href="https://doi.org/10.1021/acs.jctc.6b00653">Franco et al., <b> J. Chem. Theory Comput.</b>, 12, 11, 5247–5255, 2016</a>). The periods of time of tolerance (dt) are a multiple of the time step of the simulation. This value is also an input of this code.
