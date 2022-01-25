@@ -200,8 +200,9 @@ The perpendicular coefficient can then be obtained from the lenght of the layer 
 
 ## Alternative code - Tolerance time
 <p align="justify">
-  An alternative code considers the addition of a tolerance time. The addition of a tolerance time is done by considering the possibility that the molecule return to the layer after a short period of time, implying that the displacement was reasonably small and is a modification in the methods previusly used (<a href="https://doi.org/10.1021/jp0375057">Liu et al., <b>J. Phys. Chem. B</b>, 108, 21, 6595–6602, 2004</a> and <a href="https://doi.org/10.1021/acs.jctc.6b00653">Franco et al., <b> J. Chem. Theory Comput.</b>, 12, 11, 5247–5255, 2016</a>). The periods of time of tolerance (dt) are a multiple of the time step of the simulation. This value is also an input of this code.
-  
+  An alternative code considers the addition of a tolerance time for the calculation of the self-diffusion coefficients in parallel and perpendicular directions. The addition of a tolerance time is done by considering the possibility that the molecule return to the layer after a short period of time, implying that the displacement was reasonably small and is a modification in the methods previusly used (<a href="https://doi.org/10.1021/jp0375057">Liu et al., <b>J. Phys. Chem. B</b>, 108, 21, 6595–6602, 2004</a> and <a href="https://doi.org/10.1021/acs.jctc.6b00653">Franco et al., <b> J. Chem. Theory Comput.</b>, 12, 11, 5247–5255, 2016</a>). The periods of time of tolerance (dt) are a multiple of the time step of the simulation. This value is also an input of this code.
+
+ We have built this alternative code using the following command line:
 ```console
 gcc diff_timetolerance.c -o out -lm
 ```  
@@ -210,4 +211,25 @@ gcc diff_timetolerance.c -o out -lm
 ./out cmass.dat 2.50 3.50 2.50 3.50 density.xvg 10 50 1
 ```
  Where the first argument is the output of the cmass.c code. The second and third arguments refer to the minimum and maximum values considered for the parallel coefficients calculation while the forth and fifth refer to the perpendicular coefficient. The two next ones are related to the interval chosen for the linear regression function. The last one is the tolerance time added.
+
+</p>
+  
+## Alternative code - Tolerance time
+<p align="justify">
+ 
+  Another alternative code for the calculation of the self-diffusion coefficent in the parallel direction is presented using the discretization of the Smoluchowski Equation <a href="https://doi.org/10.1021/acs.jctc.6b00653">- Equation 67</a>. 
+  
+  Attention: it is need to run the code diff.c before using this alternative code in order to have a reference for the survival probability. 
+  
+  We have built this alternative code using the following command line:  
+```console
+gcc diff_smo.c -o out -lm
+```  
+  To run the code for example, to particles close to the wall, the command line used was:
+```console
+./out sprob_perp.dat 1.34 1.448 density.xvg 
+```
+  Where the fist argument refers to the name of the output file for survival probability of the diff.c code. The second and third elements refers to the interval in position considered for the calculation and the last argument is the name of the density file.
+  
+  
   
