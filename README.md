@@ -59,7 +59,8 @@ This algorithm was originally designed to calculate the self-diffusion coefficie
 * <a href="#reporting-errors">4. Reporting Errors</a>
 * <a href="#input-files-preparation">5. Input files preparation</a>
 * <a href="#running-the-code">6. Running the Code</a>
-* <a href="#files-and-folders">7. Alternative code - Tolerance time </a>
+* <a href="#alternative_code_1_-_tolerance_time">7. Alternative code - Tolerance time </a>
+* <a href="#alternative_code_2_-_discretization_of_the_smoluchowski_equation">8.Alternative code - Discretization of the Smoluchowski Equation
 
 
 ## Disclaimer
@@ -198,7 +199,7 @@ The perpendicular coefficient can then be obtained from the lenght of the layer 
   - diff_confined.dat: values for the self-diffusion coefficient in the order Dxx, Dyy and Dzz.
 </p>
 
-## Alternative code - Tolerance time
+## Alternative code 1 - Tolerance time
 <p align="justify">
   An alternative code considers the addition of a tolerance time for the calculation of the self-diffusion coefficients in parallel and perpendicular directions. The addition of a tolerance time is done by considering the possibility that the molecule return to the layer after a short period of time, implying that the displacement was reasonably small and is a modification in the methods previusly used (<a href="https://doi.org/10.1021/jp0375057">Liu et al., <b>J. Phys. Chem. B</b>, 108, 21, 6595–6602, 2004</a> and <a href="https://doi.org/10.1021/acs.jctc.6b00653">Franco et al., <b> J. Chem. Theory Comput.</b>, 12, 11, 5247–5255, 2016</a>). The periods of time of tolerance (dt) are a multiple of the time step of the simulation. This value is also an input of this code.
 
@@ -214,7 +215,7 @@ gcc diff_timetolerance.c -o out -lm
 
 </p>
   
-## Alternative code - Tolerance time
+## Alternative code 2 - Discretization of the Smoluchowski Equation
 <p align="justify">
  
   Another alternative code for the calculation of the self-diffusion coefficent in the parallel direction is presented using the discretization of the Smoluchowski Equation <a href="https://doi.org/10.1021/acs.jctc.6b00653">- Equation 67</a>. 
