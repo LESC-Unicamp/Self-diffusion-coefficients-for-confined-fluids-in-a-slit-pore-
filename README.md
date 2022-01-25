@@ -147,7 +147,7 @@ An executable file with all the commands is also available: doit_diff.exe.
 
 ## Running the Code
 <p align="justify">
-As the code calculates the diffusion coefficient of molecules in confined fluids, the coefficients have a dependency of the position in z. Therefore, special care must be taken to chose the interval for calculation according to the density profile.It is only possible to calculate the coefficient for small layers inside the pore.  
+As the code calculates the diffusion coefficient of molecules in confined fluids, the coefficients have a dependency of the position in z. Therefore, special care must be taken to chose the interval for calculation according to the density profile. It is only possible to calculate the coefficient for small layers inside the pore.  
   
   <em><p align="center">
   <b>Figure 02</b>. Example of a density profile of a 5nm slit pore of calcite containing methane.
@@ -163,11 +163,29 @@ To run the code for example for the center of the pore, the command line used wa
 ```console
 ./out cmass.dat 2.50 3.50 2.50 3.50 density.xvg 10 50
 ```
-Where the first argument is the output of the cmass.c code. The second and third arguments refer to the minimum and maximum values considered for the parallel coefficients calculation while the forth and fifth refer to the perpendicular coefficient. The last ones are related to the interval chosen for the linear regression function.
+Where the first argument is the output of the cmass.c code. The second and third arguments refer to the minimum and maximum positions considered for the parallel coefficients calculation while the forth and fifth refer to the perpendicular coefficient. The last ones are related to the interval chosen for the linear regression function needed for the parallel coefficients calculation.  
 
 Attention: for the perpendicular coefficient calculation a linear region of the density profile must be chosen. 
 
-It is also important to make sure that the value for "slab" in the code is the same used in the gmx density. In other to best use the code, chose a tlim value to make sure the survival probability reaches zero. 
+It is also important to make sure that the value for "slab" in the code is the same used in the gmx density.  Another important point is to make sure the same values for the simulations are used both for cmass.c and diff.c, refering to:  "totsteps" - number os steps of the simulation (nsteps in the .mdp file) and "interval" - interval between the recorded positions in the simulation (nstxout in the .mdp file).
+
+When running the code, the first step is read the cmass.dat file and create a matriz where each line is time step of the simulation and each colunm refers to one of the molecules position in that time. 
+
+  ## Parallel coefficients
+
+Next, the parallel self-coefficient calculation start, using the method developed by Liu and collaborators (<a href="https://doi.org/10.1021/jp0375057">Liu et al., <b>J. Phys. Chem. B</b>, 108, 21, 6595–6602, 2004</a>). The first step is to calculate the Mean Square Displacemet (MSD) of the system - Equation 14. In order to improve the statistics of the method, multiple time origins are used and then, the avarege of the results is obtained. 
+
+The MSD for each time origin is obtained by tagging a particle for as long as it remains in the interval of positions definied in the command line to run the code. The displacement between two time steps are calculated and averaged for the amount of time under study. The variable "tlim" represents the amount of time steps that are analyzed for every loop of different time origin. In this scenario the time origins varies from 0 to steps-tlim. 
+
+Tagging the particles is also important to caluculate the survival probability P(t) - Equation 15. The survival probability refers to the ratio between the amount of molecules that are initally in a layer, and the ones ramainin after a period of time. Naturally the values starts at one and finishes at zero. In other to best use the code, analyse and chose a tlim value to make sure the survival probability reaches zero.
+
+The parallel coefficients can then be obtained by a linear regression from a graphic of the MSD over the P(t) in function of time - Equation 16. Naturally, a linear region of the data must be chosen and the minimum e maximum values are inputs in the command line for running the code. 
+
+The files generated in the parallel calculation are: 
+  - msd.dat: data for the mean square displacement as a function of time ;
+  - sprob_par.dat: data for the survival probability as a function of time;
+  - msd_over_sprob.dat: data for the ratio of the MSD over the survival probability as a function of time; 
+
 
 </p>
 
