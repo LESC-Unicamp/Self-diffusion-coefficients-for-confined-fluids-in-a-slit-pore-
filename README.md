@@ -220,7 +220,7 @@ gcc diff_timetolerance.c -o out -lm
  
   Another alternative code for the calculation of the self-diffusion coefficent in the parallel direction is presented using the discretization of the Smoluchowski Equation <a href="https://doi.org/10.1021/acs.jctc.6b00653">- Equation 67</a>. 
   
-  Attention: it is need to run the code diff.c before using this alternative code in order to have a reference for the survival probability. 
+  <b>Attention</b>: it is need to run the code diff.c before using this alternative code in order to have a reference for the survival probability. 
   
   We have built this alternative code using the following command line:  
 ```console
