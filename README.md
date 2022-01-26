@@ -232,5 +232,7 @@ gcc diff_smo.c -o out -lm
 ```
   Where the fist argument refers to the name of the output file for survival probability of the diff.c code. The second and third elements refers to the interval in position considered for the calculation and the last argument is the name of the density file.
   
+  <b>NOTE:</b> In order to proper run this code, the user must have at least 12 G of RAM available.
+  
   
   
