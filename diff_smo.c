@@ -93,7 +93,7 @@ int main(int argc, char *argv[]){
 //	}
 
 	for(j=0;j<slab;j++){
-		fscanf(in2,"%f %f %f\n",&z[j],&rho1[j],&rho2[J]);
+		fscanf(in2,"%f %f %f\n",&z[j],&rho1[j],&rho2[j]);
 		rho[j] = rho1[j];
 	}
 	
