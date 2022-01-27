@@ -29,7 +29,7 @@ int main(int argc, char *argv[]){
 	int   conta,count1,passo;
 	int   tlim,slab;
 	float tempops,dt,dt2,L,dr;
-	float z[MAX],rho1[MAX],rho2;
+	float z[MAX],rho1[MAX],rho2[MAX],rho[MAX];
 	float con,con1,ta0,ta1,ta2,r;
 	float sumd,a,b,c,d,tempo;
 	float teta0,teta1,teta2;
@@ -93,7 +93,8 @@ int main(int argc, char *argv[]){
 //	}
 
 	for(j=0;j<slab;j++){
-		fscanf(in2,"%f %f %f\n",&z[j],&rho1[j],&rho2);
+		fscanf(in2,"%f %f %f\n",&z[j],&rho1[j],&rho2[J]);
+		rho[j] = rho1[j];
 	}
 	
 	dr = (z[slab-1]-z[0])/slab*1e-09;// space in meters
@@ -127,7 +128,7 @@ int main(int argc, char *argv[]){
 
         for(j=0;j<slab-1;j++){
                 if(z[j]>=hmin_perp && z[j]<=hmax_perp){
-			    sumd = sumd+rho1[j]+rho1[j+1];
+			    sumd = sumd+rho[j]+rho[j+1];
 		    }
         }
 
@@ -135,8 +136,8 @@ int main(int argc, char *argv[]){
 
 	for (j=0;j<slab;j++){
                  if(z[j]>=hmin_perp && z[j]<=hmax_perp){
-                        pt[0][j]=rho1[j]/sumd;
-                        pt1[0][j]=rho1[j]/sumd;
+                        pt[0][j]=rho[j]/sumd;
+                        pt1[0][j]=rho[j]/sumd;
                  }
         }
 
@@ -165,11 +166,11 @@ int main(int argc, char *argv[]){
 	for (i=0;i<nsteps-1;i++){
 		for (j=1;j<slab-1;j++){
 			if(z[j]>=hmin_perp && z[j]<=hmax_perp){
-	        		teta0 = 1.0-0.25*(log(rho1[j+1]/rho1[j-1]));
+	        		teta0 = 1.0-0.25*(log(rho[j+1]/rho[j-1]));
 				//Eq. 68
-				teta1 = -(2.0+dr/2.0*log(rho1[j+1]*rho1[j-1]/rho1[j]/rho1[j]));
+				teta1 = -(2.0+dr/2.0*log(rho[j+1]*rho[j-1]/rho[j]/rho[j]));
 				//Eq.69
-				teta2 = 1.0+0.25*log(rho1[j+1]/rho1[j-1]);
+				teta2 = 1.0+0.25*log(rho[j+1]/rho[j-1]);
 				//Eq.70
 
 				pt[i+1][j]     = pt[i][j] + con*(pt[i][j+1]*teta0+pt[i][j]*teta1+pt[i][j-1]*teta2);
