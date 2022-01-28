@@ -76,7 +76,7 @@ The main program, subroutines and functions contain some explanatory comments an
 ## Building and Compilation
 <p align="justify">
 
-  For compilation, we have used the GNU Compiler Collection (GCC). See more information on GCC <a href="https://gcc.gnu.org/">here</a>. We tested the algorithm using some GCC versions: 9.3.0 in Ubuntu 20.04 LTS and 7.5.0 in Ubuntu 18.04 LTS.
+  For compilation, we have used the GNU Compiler Collection (GCC). We tested the algorithm using some GCC versions: 9.3.0 in Ubuntu 20.04 LTS and 7.5.0 in Ubuntu 18.04 LTS.
 </p>
 
 We have built the code for the calculation of the self-difusion coefficients using the following command line:
