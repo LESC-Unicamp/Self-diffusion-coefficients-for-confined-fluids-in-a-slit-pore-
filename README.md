@@ -85,9 +85,6 @@ We have built the code for the calculation of the self-difusion coefficients usi
 ```console
 gcc diff.c -o out -lm
 ```
-
-<p align="justify">
-
 </p>
 
 ## Reporting Errors
