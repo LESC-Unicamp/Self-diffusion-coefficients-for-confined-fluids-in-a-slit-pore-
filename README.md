@@ -211,14 +211,14 @@ gcc diff_timetolerance.c -o out -lm
 ```console
 ./out cmass.dat 2.50 3.50 2.50 3.50 density.xvg 10 50 1
 ```
- Where the first argument is the output of the cmass.c code. The second and third arguments refer to the minimum and maximum values considered for the parallel coefficients calculation while the forth and fifth refer to the perpendicular coefficient. The two next ones are related to the interval chosen for the linear regression function. The last one is the tolerance time added.
+ Where the first argument is the output of the cmass.c code. The second and third arguments refer to the minimum and maximum values considered for the parallel coefficients calculation while the forth and fifth refer to the perpendicular coefficient. The two next ones are related to the interval chosen for the linear regression function. The last one is the tolerance time added. The files genereted are the same of the original code.  
 
 </p>
   
 ## Alternative code 2 - Discretization of the Smoluchowski Equation
 <p align="justify">
  
-  Another alternative code for the calculation of the self-diffusion coefficent in the parallel direction is presented using the discretization of the Smoluchowski Equation <a href="https://doi.org/10.1021/acs.jctc.6b00653">- Equation 67</a>. 
+  Another alternative code for the calculation of the self-diffusion coefficent in the perpendicular direction is presented using the discretization of the Smoluchowski Equation <a href="https://doi.org/10.1021/acs.jctc.6b00653">- Equation 67</a>. 
   
   <b>Attention</b>: it is need to run the code diff.c before using this alternative code in order to have a reference for the survival probability. 
   
@@ -231,6 +231,16 @@ gcc diff_smo.c -o out -lm
 ./out sprob_perp.dat 1.34 1.448 density.xvg 
 ```
   Where the fist argument refers to the name of the output file for survival probability of the diff.c code. The second and third elements refers to the interval in position considered for the calculation and the last argument is the name of the density file.
+  The files generated are: 
+  - sprob_perp.dat: data for the survival probability as a function of time;
+  - lndensity.xvg: data for the natural logaritm of the density in function of position;
+  - alpha.dat: value for constant alpha;
+  - diff_confined.dat: values for the self-diffusion coefficient in the order Dxx, Dyy and Dzz.
+  
+  
+  
+  
+  
   
   <b>NOTE:</b> In order to proper run this code, the user must have at least 12 G of RAM available.
   
