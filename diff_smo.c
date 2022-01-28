@@ -52,8 +52,8 @@ int main(int argc, char *argv[]){
 	in  = fopen(argv[1],"r");
 	in2 = fopen(argv[4],"r");
 	
-	in3 = fopen("results/mean.dat","w");
-	in5 = fopen("results/sprob_perp_ps.dat","w");
+	in3  = fopen("results/sprob_perp_smo.dat","w");
+	in5  = fopen("results/sprob_perp_ps.dat","w");
 	in10 = fopen("results/diff_smo.dat","a");
 
 ////////////////////////////////////////////////////////////////////////	
