@@ -231,16 +231,15 @@ gcc diff_smo.c -o out -lm
 ./out sprob_perp.dat 1.34 1.448 density.xvg 
 ```
   Where the fist argument refers to the name of the output file for survival probability of the diff.c code. The second and third elements refers to the interval in position considered for the calculation and the last argument is the name of the density file.
+  
+  When running the code, the first step is read the survival probability of the diff.c code and the density file. Next, the boundary and initial conditions are set. The value of the time step of the discretization resolution (dt) should be ajusted if there is no stability in the results. 
+  
+  The resolution of the Smoluchowski equation is done by minimizing the square difference between the value calculated for the probability function and the one provided by the diff.c code adjusting the value of D - the self-diffusion coefficient. The <a href="https://www.sciencedirect.com/science/article/pii/S0952197616000385?casa_token=DdxwqB7h6mkAAAAA:i9JRCaZY2b-c09vc4UmOIZ7IWkQBsMSYWV6h5-np_Z225AG5poIOt7dbsa4oRUDB2UgnOYRzaw">golden search algoritm</a> is used for this minimization. In adition, there is the need to equalize the number of points for the survival probability between the methods. Due to the smaller time step need to obtain stability, resulting in more points, the Smoluchowski discretization results have to be averaged. The survival probability from the Smoluchwski discretization is obtained by the numerical integration in time of the <a href="https://doi.org/10.1021/acs.jctc.6b00653"> Equation 67</a>.  
+  
   The files generated are: 
-  - sprob_perp.dat: data for the survival probability as a function of time;
-  - lndensity.xvg: data for the natural logaritm of the density in function of position;
-  - alpha.dat: value for constant alpha;
-  - diff_confined.dat: values for the self-diffusion coefficient in the order Dxx, Dyy and Dzz.
-  
-  
-  
-  
-  
+  - sprob_perp_smo.dat: data for the survival probability as a function of time for Smoluchowiski discretization;
+  - sprob_perp_ps.dat: data for the survival probability as a function of time in ps for the method of <a href="https://doi.org/10.1021/acs.jctc.6b00653">- Franco et al.</a>;
+  - diff_smo.dat: values for the self-diffusion coefficient Dzz for Smoluchowiski discretization.
   
   <b>NOTE:</b> In order to proper run this code, the user must have at least 12 G of RAM available.
   
