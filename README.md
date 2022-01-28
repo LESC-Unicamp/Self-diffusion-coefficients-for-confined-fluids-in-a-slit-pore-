@@ -75,10 +75,8 @@ The main program, subroutines and functions contain some explanatory comments an
 
 ## Building and Compilation
 <p align="justify">
-  
-
-  For compilation, we have used the GNU Compiler Collection (GCC). See more information on GCC
- <a href="https://gcc.gnu.org/">here</a>. We tested the algorithm using some GCC versions: 9.3.0 in Ubuntu 20.04 LTS and 7.5.0 in Ubuntu 18.04 LTS.
+For compilation, we have used the GNU Compiler Collection (GCC). See more information on GCC
+<a href="https://gcc.gnu.org/">here</a>. We tested the algorithm using some GCC versions: 9.3.0 in Ubuntu 20.04 LTS and 7.5.0 in Ubuntu 18.04 LTS.
 </p>
 
 <p align="justify">
