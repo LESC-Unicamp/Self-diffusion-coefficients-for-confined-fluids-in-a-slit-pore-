@@ -85,12 +85,12 @@ int main(int argc, char *argv[]){
 
 	slab = 990;// from gmx density
 	
-//	char  string[BUFFER_SIZE];
+	char  string[BUFFER_SIZE];
 
 
-//	for(i=0;i<24;i++){
-//		fgets(string,BUFFER_SIZE,in6);
-//	}
+	for(i=0;i<24;i++){
+		fgets(string,BUFFER_SIZE,in2);
+	}
 
 	for(j=0;j<slab;j++){
 		fscanf(in2,"%f %f %f\n",&z[j],&rho1[j],&rho2[j]);

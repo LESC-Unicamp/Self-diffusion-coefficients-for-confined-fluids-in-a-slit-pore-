@@ -279,9 +279,9 @@ int main(int argc, char *argv[]){
 
 	char  string[BUFFER_SIZE];
 
-//	for(i=0;i<24;i++){
-//		fgets(string,BUFFER_SIZE,in6);
-//	}
+	for(i=0;i<24;i++){
+		fgets(string,BUFFER_SIZE,in6);
+	}
 
 	for(i=0;i<slab;i++){
 		fscanf(in6,"%f %f %f\n",&z[i],&rho1[i],&rho2[i]);
