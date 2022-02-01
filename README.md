@@ -35,7 +35,7 @@
 
 <p align="center"><b>Authors</b></p>
 <p align="center">
-Marcelle B.M. Spera<br>
+Marcelle B. M. Spera<br>
 Flavia N. Braga<br>
 Rodrigo A. C. Bartolomeu<br>
 Luís F. M. Franco<br></p>
