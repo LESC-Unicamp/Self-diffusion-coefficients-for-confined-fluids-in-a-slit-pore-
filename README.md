@@ -59,8 +59,6 @@ This algorithm was originally designed to calculate the self-diffusion coefficie
 * <a href="#reporting-errors">4. Reporting Errors</a>
 * <a href="#input-files-preparation">5. Input files preparation</a>
 * <a href="#running-the-code">6. Running the Code</a>
-* <a href="#alternative_code_1_-_tolerance_time">7. Alternative code 1 - Tolerance time </a>
-* <a href="#alternative_code_2_-_discretization_of_the_smoluchowski_equation">8. Alternative code 2 - Discretization of the Smoluchowski Equation
 
 
 ## Disclaimer
@@ -192,50 +190,6 @@ The perpendicular coefficient can then be obtained from the lenght of the layer 
   - alpha.dat: value for constant alpha;
   - diff_confined.dat: values for the self-diffusion coefficient in the order Dxx, Dyy and Dzz.
 </p>
-
-## Alternative code 1 - Tolerance time
-<p align="justify">
-  An alternative code considers the addition of a tolerance time for the calculation of the self-diffusion coefficients in parallel and perpendicular directions. The addition of a tolerance time is done by considering the possibility that the molecule return to the layer after a short period of time, implying that the displacement was reasonably small and is a modification in the methods previusly used (<a href="https://doi.org/10.1021/jp0375057">Liu et al., <b>J. Phys. Chem. B</b>, 108, 21, 6595–6602, 2004</a> and <a href="https://doi.org/10.1021/acs.jctc.6b00653">Franco et al., <b> J. Chem. Theory Comput.</b>, 12, 11, 5247–5255, 2016</a>). The periods of time of tolerance (dt) are a multiple of the time step of the simulation. This value is also an input of this code.
-
- We have built this alternative code using the following command line:
-```console
-gcc diff_timetolerance.c -o out -lm
-```  
- To run the code for example for the center of the pore and dt = 1, the command line used was:
-```console
-./out cmass.dat 2.50 3.50 2.50 3.50 density.xvg 10 50 1
-```
- Where the first argument is the output of the cmass.c code. The second and third arguments refer to the minimum and maximum values considered for the parallel coefficients calculation while the forth and fifth refer to the perpendicular coefficient. The two next ones are related to the interval chosen for the linear regression function. The last one is the tolerance time added. The files genereted are the same of the original code.  
-
-</p>
-  
-## Alternative code 2 - Discretization of the Smoluchowski Equation
-<p align="justify">
- 
-  Another alternative code for the calculation of the self-diffusion coefficent in the perpendicular direction is presented using the discretization of the Smoluchowski Equation <a href="https://doi.org/10.1021/acs.jctc.6b00653">- Equation 67</a>. 
-  
-  <b>Attention</b>: it is need to run the code diff.c before using this alternative code in order to have a reference for the survival probability. 
-  
-  We have built this alternative code using the following command line:  
-```console
-gcc diff_smo.c -o out -lm
-```  
-  To run the code for example, to particles close to the wall, the command line used was:
-```console
-./out sprob_perp.dat 1.34 1.448 density.xvg 
-```
-  Where the fist argument refers to the name of the output file for survival probability of the diff.c code. The second and third elements refers to the interval in position considered for the calculation and the last argument is the name of the density file.
-  
-  When running the code, the first step is read the survival probability of the diff.c code and the density file. Next, the boundary and initial conditions are set. The value of the time step of the discretization resolution (dt) should be ajusted if there is no stability in the results. 
-  
-  The resolution of the Smoluchowski equation is done by minimizing the square difference between the value calculated for the probability function and the one provided by the diff.c code adjusting the value of D - the self-diffusion coefficient. The <a href="https://www.sciencedirect.com/science/article/pii/S0952197616000385?casa_token=DdxwqB7h6mkAAAAA:i9JRCaZY2b-c09vc4UmOIZ7IWkQBsMSYWV6h5-np_Z225AG5poIOt7dbsa4oRUDB2UgnOYRzaw">golden search algoritm</a> is used for this minimization. In adition, there is the need to equalize the number of points for the survival probability between the methods. Due to the smaller time step need to obtain stability, resulting in more points, the Smoluchowski discretization results have to be averaged. The survival probability from the Smoluchwski discretization is obtained by the numerical integration in time of the <a href="https://doi.org/10.1021/acs.jctc.6b00653"> Equation 67</a>.  
-  
-  The files generated are: 
-  - sprob_perp_smo.dat: data for the survival probability as a function of time for Smoluchowiski discretization;
-  - sprob_perp_ps.dat: data for the survival probability as a function of time in ps for the method of <a href="https://doi.org/10.1021/acs.jctc.6b00653">- Franco et al.</a>;
-  - diff_smo.dat: values for the self-diffusion coefficient Dzz for Smoluchowiski discretization.
-  
-  <b>NOTE:</b> In order to proper run this code, the user must have at least 12 G of RAM available.
   
   
   
