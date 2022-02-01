@@ -35,9 +35,10 @@
 
 <p align="center"><b>Authors</b></p>
 <p align="center">
-Flavia Nogueira Braga<br>
-Marcelle Spera<br>
-Luís Fernando Mercier Franco<br></p>
+Marcelle B.M. Spera<br>
+Flavia N. Braga<br>
+Rodrigo A. C. Bartolomeu<br>
+Luís F. M. Franco<br></p>
 
 # Self-diffusion coefficients for confined fluids in a slit pore 
 <p align="justify">
