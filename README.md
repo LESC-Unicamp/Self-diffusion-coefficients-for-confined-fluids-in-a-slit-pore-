@@ -56,9 +56,9 @@ This algorithm was originally designed to calculate the self-diffusion coefficie
 ## Contents
 * <a href="#disclaimer">1. Disclaimer</a>
 * <a href="#language">2. Language</a>
-* <a href="#building-and-compilation">3. Building and Compilation</a>
-* <a href="#reporting-errors">4. Reporting Errors</a>
-* <a href="#input-files-preparation">5. Input files preparation</a>
+* <a href="#input-files-preparation">3. Input files preparation</a>
+* <a href="#building-and-compilation">4. Building and Compilation</a>
+* <a href="#reporting-errors">5. Reporting Errors</a>
 * <a href="#running-the-code">6. Running the Code</a>
 
 
@@ -70,20 +70,6 @@ The authors make no warranties about the use of this software. The authors hold 
 ## Language
 <p align="justify">
 The main program, subroutines and functions contain some explanatory comments and are mainly written in C language. 
-</p>
-
-## Building and Compilation
-<p align="justify">
-
-  For compilation, we have used the GNU Compiler Collection (GCC). We tested the algorithm using some GCC versions: 9.3.0 in Ubuntu 20.04 LTS and 7.5.0 in Ubuntu 18.04 LTS.
-</p>
-
-We have built the code for the calculation of the self-difusion coefficients using the following command line:
-</p>
-
-```console
-gcc diff.c -o out -lm
-```
 </p>
 
 ## Reporting Errors
@@ -137,6 +123,20 @@ mkdir results
 Attention: this code is not suitable for molecules with pseudoatoms of different mass.
 
 An executable file with all the commands is also available: doit_diff.exe.
+</p>
+
+## Building and Compilation
+<p align="justify">
+
+  For compilation, we have used the GNU Compiler Collection (GCC). We tested the algorithm using some GCC versions: 9.3.0 in Ubuntu 20.04 LTS and 7.5.0 in Ubuntu 18.04 LTS.
+</p>
+
+We have built the code for the calculation of the self-difusion coefficients using the following command line:
+</p>
+
+```console
+gcc diff.c -o out -lm
+```
 </p>
 
 ## Running the Code
