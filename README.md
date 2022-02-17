@@ -99,9 +99,9 @@ gmx trjconv -f prod_out.trr -s prod_out.tpr -pbc nojump -o out.gro
 ```
 For further details on how to use gmx trjconv the user is referred to the GROMACS <a href="https://manual.gromacs.org/documentation/2018/onlinehelp/gmx-trjconv.html">documentation</a> for the topic.
 </p>
-In both cases, the molecule of interest to obtain the self-diffusion coefficient must be carefully specified. Only one type of molecule can be studied at a time. 
+In both cases, the molecule of interest to obtain the self-diffusion coefficient must be carefully specified. Only one type of molecule can be studied at a time. The user will have to specify the molecule for GROMACS after entering these codes. 
 </p>
-In order to obtain a compact file from the trajectories of the center of mass of the molecules, an additional code is needed: cmass.c. We have built the code using the following command line:
+In order to obtain a compact file from the trajectories of the center of mass of the molecules, an additional code (available to download) is needed: cmass.c. We have built the code using the following command line:
 </p>
 
 ```console
