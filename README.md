@@ -93,7 +93,7 @@ If you spot an error in the program files and all other documentation, please su
 
 ## Input files preparation
 <p align="justify">
-Before running the code to obtain the coefficients, the user should first prepare the files obtained from Molecular Dynamics (MD) simulation. The program used for MD simulations was GROMACS (version 2018.03 tested). Multiple files are obtained as outputs in the simulation. Here, the files will be referred by "name.type".
+Before running the code to obtain the coefficients, the user should first prepare the files obtained from Molecular Dynamics (MD) simulation. The program used for MD simulations was GROMACS (version 2018.03 tested). Multiple files are obtained as outputs in the simulation. 
 </p>
 First, it is necessary to obtain the mean density of the molecules in function of the distance in z. This was done using GROMACS and the files .trr and .tpr, as shown by the following command line:
 </p>
