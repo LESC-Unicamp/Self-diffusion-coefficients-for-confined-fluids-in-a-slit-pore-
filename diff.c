@@ -55,14 +55,14 @@ int main(int argc, char *argv[]){
 
 	FILE *in,*in2,*in3,*in4,*in5,*in6,*in7,*in8,*in9;
 	in  = fopen(argv[1],"r");
-	in2 = fopen("results/msd.dat","w");	
-	in3 = fopen("results/sprob_par.dat","w");	
-	in4 = fopen("results/msd_over_sprob.dat","w");	
-	in5 = fopen("results/sprob_perp.dat","w");	
+	in2 = fopen("msd.dat","w");	
+	in3 = fopen("sprob_par.dat","w");	
+	in4 = fopen("msd_over_sprob.dat","w");	
+	in5 = fopen("sprob_perp.dat","w");	
 	in6 = fopen(argv[6],"r");	
-	in7 = fopen("results/lndensity.xvg","w");	
-	in8 = fopen("results/diff_confined.dat","a");	
-	in9 = fopen("results/alpha.dat","a");	
+	in7 = fopen("lndensity.xvg","w");	
+	in8 = fopen("diff_confined.dat","a");	
+	in9 = fopen("alpha.dat","a");	
 
 /////////////// Memory allocation //////////////////////////////////////
 	
