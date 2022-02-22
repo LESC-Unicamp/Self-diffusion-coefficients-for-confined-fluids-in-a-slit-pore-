@@ -116,11 +116,7 @@ Where the first argument refers to the number of pseudoatoms used to built the m
 </p>
 Special attention must be taken to the last arguments, as they refer to the inputs of the .mdp file in the simulation. The fourth argument is the number os steps of the simulation (nsteps in the .mdp file) and the fifth refers to the interval between the recorded positions in the simulation (nstxout in the .mdp file).
 
-Moreover, a folder named "results" should also be created inside the folder that the programs are running, as shown by the command line:
-```console
-mkdir results
-```
-Attention: this code is not suitable for molecules with pseudoatoms of different mass.
+Attention: this code is not suitable for assimetric molecules with pseudoatoms of different mass.
 
 An executable file with all the commands is also available: doit_diff.exe.
 </p>
