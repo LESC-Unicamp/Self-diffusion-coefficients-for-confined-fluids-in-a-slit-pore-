@@ -115,7 +115,7 @@ To run the code, the command line used was:
 Where the first argument refers to the number of pseudoatoms used to built the molecule. In the case of methane, using <a href="http://trappe.oit.umn.edu/">TraPPE forcefield</a>, for example, this number equals to one, while for ethane is two. The second argument, refers to the output of gmx trjconv while the third argument is the output of cmass.c. 
 </p>
 Special attention must be taken to the last arguments, as they refer to the inputs of the .mdp file in the simulation. The fourth argument is the number os steps of the simulation (nsteps in the .mdp file) and the fifth refers to the interval between the recorded positions in the simulation (nstxout in the .mdp file).
-
+</p>
 Attention: this code is not suitable for assimetric molecules with pseudoatoms of different mass.
 
 An executable file with all the commands is also available: doit_diff.exe.
