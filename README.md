@@ -131,7 +131,7 @@ We have built the code for the calculation of the self-difusion coefficients usi
 </p>
 
 ```console
-gcc diff.c -o out -lm
+gcc diff.c -o out2 -lm
 ```
 </p>
 
@@ -151,7 +151,7 @@ In this code, two major regions are analyzed. One in the center of the pore and 
 
 To run the code for example for the center of the pore, the command line used was:
 ```console
-./out cmass.dat 2.50 3.50 2.50 3.50 density.xvg 10 50 5000000 100
+./out2 cmass.dat 2.50 3.50 2.50 3.50 density.xvg 10 50 5000000 100
 ```
 Where the first argument is the output of the cmass.c code. The second and third arguments refer to the minimum and maximum positions considered for the parallel coefficients calculation while the forth and fifth refer to the perpendicular coefficient. The two next ones are related to the time interval chosen for the linear regression function needed for the parallel coefficients calculation.
 
