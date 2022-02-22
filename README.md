@@ -151,13 +151,14 @@ In this code, two major regions are analyzed. One in the center of the pore and 
 
 To run the code for example for the center of the pore, the command line used was:
 ```console
-./out cmass.dat 2.50 3.50 2.50 3.50 density.xvg 10 50
+./out cmass.dat 2.50 3.50 2.50 3.50 density.xvg 10 50 5000000 100
 ```
-Where the first argument is the output of the cmass.c code. The second and third arguments refer to the minimum and maximum positions considered for the parallel coefficients calculation while the forth and fifth refer to the perpendicular coefficient. The last ones are related to the interval chosen for the linear regression function needed for the parallel coefficients calculation.  
+Where the first argument is the output of the cmass.c code. The second and third arguments refer to the minimum and maximum positions considered for the parallel coefficients calculation while the forth and fifth refer to the perpendicular coefficient. The two next ones are related to the time interval chosen for the linear regression function needed for the parallel coefficients calculation.
 
-Attention: for the perpendicular coefficient calculation a linear region of the density profile must be chosen. 
+Special attention must be taken to the last two arguments, as they refer to the inputs of the .mdp file in the simulation. The argument number nine is the number os steps of the simulation (nsteps in the .mdp file) and the argument number ten refers to the interval between the recorded positions in the simulation (nstxout in the .mdp file).
+</p>
 
-It is also important to make sure that the value for "slab" in the code is the same used in the gmx density.  Another important point is to make sure the same values for the simulations are used both for cmass.c and diff.c, refering to:  "totsteps" - number os steps of the simulation (nsteps in the .mdp file) and "interval" - interval between the recorded positions in the simulation (nstxout in the .mdp file).
+Attention: for the perpendicular coefficient calculation a linear region of the density profile must be chosen. It is also important to make sure that the value for "slab" in the code is the same used in the gmx density.  
 
   <b>Parallel coefficients</b>
   
