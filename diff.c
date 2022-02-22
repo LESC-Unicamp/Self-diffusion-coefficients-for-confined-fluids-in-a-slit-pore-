@@ -10,7 +10,9 @@
 /////////////// 6) File density.xvg                            /////////
 /////////////// 7) Lower limit for regression (msd_over_sprob) /////////
 /////////////// 8) Upper limit for regression (msd_over_sprob) /////////
-/////////////// Spera - April, 2021 ////////////////////////////////////
+/////////////// 9) nsteps in the simulation                    /////////
+/////////////// 10) nstxout in the simulation                   ////////
+/////////////// Spera an Braga - Feb., 2022 ////////////////////////////
 
 #include<stdio.h>
 #include<math.h>
@@ -45,8 +47,8 @@ int main(int argc, char *argv[]){
 
 /////////////// System data ////////////////////////////////////////////
 
-	int   totsteps = 5000000;
-	int   interval = 100;
+	int   totsteps = atof(argv[9]);
+	int   interval = atof(argv[10]);
 	int   steps    = totsteps/interval;
 	float hmin_par = atof(argv[2]);
 	float hmax_par = atof(argv[3]);
