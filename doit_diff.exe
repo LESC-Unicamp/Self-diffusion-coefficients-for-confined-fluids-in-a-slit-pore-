@@ -18,7 +18,7 @@
 # Self-difusion in confined fluids
 
 	# Step  4: C language compiler for the 'diff.c' code to file 'out2'
-	./out cmass.dat 2.50 3.50 2.50 3.50 density.xvg 10 50
+	./out cmass.dat 2.50 3.50 2.50 3.50 density.xvg 10 50 5000000 100
 
 	# Step 5: executable file 'out2' 	
 	./out2
