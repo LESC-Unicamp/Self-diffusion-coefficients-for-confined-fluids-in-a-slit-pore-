@@ -110,11 +110,11 @@ gcc cmass.c -o out -lm
 To run the code, the command line used was:
 
 ```console
-./out 2 out.gro cmass.dat 5000000 100
+./out 1 4 out.gro cmass.dat 5000000 100
 ```
-Where the first argument refers to the number of pseudoatoms used to built the molecule. In the case of methane, using <a href="http://trappe.oit.umn.edu/">TraPPE forcefield</a>, for example, this number equals to one, while for ethane is two. The second argument, refers to the output of gmx trjconv while the third argument is the output of cmass.c. 
+Here the code was bild to account for hydrocarbons using the OPLS-AA force-field. In the example there is methane, where the first argument refers to the number of carbons (1) and the second argument to the number of hydrogens (4) per molecule. Special attention must be taken if the molecule of interest is not a hydrocarbon, including changing the mass of each atom in order to do the weighted average of the molecule to calculate the center of mass. The third argument, refers to the name of output of gmx trjconv file while the fourth argument is name of the output file of cmass.c. 
 </p>
-Special attention must be taken to the last arguments, as they refer to the inputs of the .mdp file in the simulation. The fourth argument is the number os steps of the simulation (nsteps in the .mdp file) and the fifth refers to the interval between the recorded positions in the simulation (nstxout in the .mdp file).
+Special attention must be taken to the last arguments, as they refer to the inputs of the .mdp file in the simulation. The fifth argument is the number os steps of the simulation (nsteps in the .mdp file) and the last one refers to the interval between the recorded positions in the simulation (nstxout in the .mdp file).
 </p>
 Attention: this code is not suitable for assimetric molecules with pseudoatoms of different mass.
 
