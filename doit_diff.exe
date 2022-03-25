@@ -12,7 +12,7 @@
 	gcc cmass.c -o out -lm
 
 	# Step 3: Executable file 'out /  
-	./out 1 out.gro cmass.dat 5000000 100
+	./out 1 4 out.gro cmass.dat 5000000 100
 		# Arguments: 1-number of atoms in the molecule of bulk / out.gro-input file / cmass.dat-output file / 5000000-nsteps / 100-nstxout
 
 # Self-difusion in confined fluids
