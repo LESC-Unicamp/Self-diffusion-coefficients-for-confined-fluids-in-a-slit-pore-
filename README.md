@@ -112,11 +112,10 @@ To run the code, the command line used was:
 ```console
 ./out 1 4 out.gro cmass.dat 5000000 100
 ```
-Here the code was bild to account for hydrocarbons using the OPLS-AA force-field. In the example there is methane, where the first argument refers to the number of carbons (1) and the second argument to the number of hydrogens (4) per molecule. Special attention must be taken if the molecule of interest is not a hydrocarbon, including changing the mass of each atom in order to do the weighted average of the molecule to calculate the center of mass. The third argument, refers to the name of output of gmx trjconv file while the fourth argument is name of the output file of cmass.c. 
+Here the code was bild to account for hydrocarbons using the OPLS-AA force-field. In the example there is methane, where the first argument refers to the number of carbons (1) and the second argument to the number of hydrogens (4) per molecule. Special attention must be taken if the molecule of interest is not a hydrocarbon, including changing the mass of each atom (c_mass and h_mass) in order to do the weighted average of the molecule to calculate the center of mass. The third argument, refers to the name of output of gmx trjconv file while the fourth argument is name of the output file of cmass.c. 
 </p>
 Special attention must be taken to the last arguments, as they refer to the inputs of the .mdp file in the simulation. The fifth argument is the number os steps of the simulation (nsteps in the .mdp file) and the last one refers to the interval between the recorded positions in the simulation (nstxout in the .mdp file).
 </p>
-Attention: this code is not suitable for assimetric molecules with pseudoatoms of different mass.
 
 An executable file with all the commands is also available: doit_diff.exe.
 </p>
